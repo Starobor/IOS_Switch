@@ -47,10 +47,11 @@ class ViewController: UIViewController {
         self.clikerButton.layer.cornerRadius = 6
         self.clikerButton.addTarget(self, action: #selector(buttonPressed(paramTarget:)), for: .touchUpInside)
         self.view.addSubview(self.clikerButton)
+        
     }
     
     func addLabel()  {
-        let widthLabel = 100
+        let widthLabel = Int(view.bounds.width)
         let heightLabel = 30
         
         self.clikerLabel.frame = CGRect(x: (WIDTH_SCREEN-widthLabel)/2, y: heightLabel, width: widthLabel, height: heightLabel)
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
     
     @objc func buttonPressed(paramTarget: UIButton) {
         countCliked += 1
-        self.clikerLabel.text = String(countCliked)
+        self.clikerLabel.text = String("\(countCliked) - count cliked")
     }
     
     override func didReceiveMemoryWarning() {
